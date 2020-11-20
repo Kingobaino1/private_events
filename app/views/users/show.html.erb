@@ -1,2 +1,6 @@
 <h1>User Events<h1>
+<% @user_events.each do |event|%>
+  Event Date: <%= event.date%><br>
+  Event Venue: <%= event.location%>
+<% end %>
 <%= link_to 'logout', destroy_user_session_path, method: :delete %>
