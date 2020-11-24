@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # a method to add the event to the attended events array of the current user.
   def attend_event
     current_user.attended_events << Event.find(params[:event_id])
-    redirect_to root_path
+    redirect_to user_path
   end
 
   private
