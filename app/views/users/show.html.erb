@@ -18,8 +18,26 @@
 </div>
 <% end %>
 
-<h3 class='text-muted'>This is the list of your attended events:</h3>
-<% current_user.attended_events.each do |e| %>
+<h3 class='text-muted'>Upcoming events:</h3>
+<% current_user.attended_events.next_events.each do |e| %>
+  <div class="card text-center mb-5">
+  <div class="card-header">
+    <%= e.title %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= e.description %></p>
+    <p class="card-text"><%= e.location %></p>
+    <p class="card-text"><%= e.date %></p>
+    <%= link_to 'View Event', event_path(e.id), class: 'btn btn-primary' %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= e.created_at %>
+  </div>
+</div>
+<% end %>
+
+<h3 class='text-muted'>Previously Attended Events:</h3>
+<% current_user.attended_events.prev_events.each do |e| %>
   <div class="card text-center mb-5">
   <div class="card-header">
     <%= e.title %>

@@ -1,4 +1,13 @@
-<% @events.each do |e|%>
+<h2>Upcoming Events:</h2>
+<% @events.next_events.each do |e|%>
+  <div class="breadcrumb mb-3 d-flex justify-content-between w-50 mx-auto">
+    <%= e.title %>
+    <%= link_to 'View Event', event_path(e.id), class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>
+
+<h2>Previous Events:</h2>
+<% @events.prev_events.each do |e|%>
   <div class="breadcrumb mb-3 d-flex justify-content-between w-50 mx-auto">
     <%= e.title %>
     <%= link_to 'View Event', event_path(e.id), class: 'btn btn-success btn-sm' %>
