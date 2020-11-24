@@ -1,12 +1,28 @@
-<h1> Create Events</h1>
+<h1 class="text-center mb-4"> Create an Event</h1>
+<div class="w-25 mx-auto">
+  <% if flash.notice %>
+      <div class='alert alert-success'>
+        <%= render 'layouts/notice' %>
+      </div>
+    <% end %>
+    <% if flash.alert %>
+      <div class='alert alert-danger'>
+        <%= render 'layouts/alerts' %>
+      </div>
+    <% end %>
 <%= form_for @event do |f|%>
-  <%= f.label :date%><br>
-  <%= f.datetime_field :date%>
-  <%= f.label :location%><br>
-  <%= f.text_field :location%><br>
-   <%= f.label :title%><br>
-  <%= f.text_field :title%><br>
-   <%= f.label :description%><br>
-  <%= f.text_area :description%><br>
-  <%= f.submit :submit, class: 'btn btn-primary btn-sm'%>
+  <div class="form-group">
+    <%= f.text_field :title, placeholder: 'Enter event title'%>
+  </div>
+   <div class="form-group">
+    <%= f.text_area :description, placeholder: 'Describe the event'%>
+  </div>
+   <div class="form-group">
+    <%= f.text_field :location, placeholder: 'Event location'%>
+  </div>
+   <div class="form-group">
+    <%= f.datetime_field :date%>
+  </div>
+  <%= f.submit 'Create Event', class: 'btn btn-primary btn-sm'%>
 <% end %>
+</div>

@@ -13,6 +13,7 @@ class Event < ApplicationRecord
 
   def valid_date?
     begin
+      return false if self.date.nil?
       return true unless self.date.past?
     rescue ArgumentError
       false
