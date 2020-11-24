@@ -1,6 +1,20 @@
-<h1>User Events<h1>
-<% @user_events.each do |event|%>
-  Event Date: <%= event.date%><br>
-  Event Venue: <%= event.location%>
+<h2 class='mb-3'>Welcome <%= current_user.name %></h2>
+
+<h3 class='text-muted'>This is the list of your created events:</h3>
+<% current_user.created_events.each do |e| %>
+  <div class="card text-center mb-5">
+  <div class="card-header">
+    <%= e.title %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text"><%= e.description %></p>
+    <p class="card-text"><%= e.location %></p>
+    <p class="card-text"><%= e.date %></p>
+    <%= link_to 'View Event', event_path(e.id), class: 'btn btn-primary' %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= e.created_at %>
+  </div>
+</div>
 <% end %>
-<%= link_to 'logout', destroy_user_session_path, method: :delete %>

@@ -2,5 +2,6 @@
   <div>
     <%= e.date %>
     <%= e.location %>
+    <%= link_to 'View Event', event_path(e.id), class: 'btn btn-success btn-sm' %>
   </div>
 <% end %>

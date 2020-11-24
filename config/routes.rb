@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #   delete '/users/sign_out' => "devise/sessions#destroy"
   # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'users#show'
+  root to: 'events#index'
+  get '/users/:id' => 'users#show'
+  get '/attend' => 'events#attend_event'
   resources :events
 end

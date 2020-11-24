@@ -22,10 +22,16 @@ class EventsController < ApplicationController
     end
   end
 
+  # a method to add the event to the attended events array of the current user.
+  def attend_event
+    current_user.attended_events << Event.find(params[:event_id])
+    redirect_to root_path
+  end
+
   private
 
   def event_params
-    params.require(:event).permit(:date, :location)
+    params.require(:event).permit(:date, :location, :title, :description)
   end
 
 end

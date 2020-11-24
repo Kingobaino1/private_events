@@ -1,2 +1,9 @@
 <h1>Lists of Events</h1>
 <%= @event.creator.name%>
+<%= @event.title %>
+<%= @event.description %>
+<%= @event.date %>
+<%= @event.location %>
+<%= @event.id %>
+<%= button_to 'Attend Event', attend_path, params: { event_id: @event.id }, method: 'get', class: 'btn btn-success btn-sm' %>
+<%# <input type='button', onclick="window.location='/attend'" class='btn btn-success btn-sm' value='Attend Event'> %>
