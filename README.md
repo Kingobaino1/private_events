@@ -22,7 +22,7 @@
 
 ## Live Demo
 
-<!-- [Live Demo Link](https://just-members.herokuapp.com/) -->
+[Live Demo Link](https://privatevents.herokuapp.com/)
 
 ## Getting Started
 
@@ -88,4 +88,4 @@ Give a ⭐️ if you like this project
 
 ## License
 
-This project is [MIT]() licensed.
+This project is [MIT](https://github.com/Kingobaino1/private_events/blob/build-app/LICENSE) licensed.
