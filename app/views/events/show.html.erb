@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= @event.title%></h1>
+  <p class="lead">Event Description: <%= @event.description%></p>
+  <p class="lead">Venue: <%= @event.location%></p>
+  <p class="lead"><%= @event.date.to_date.to_formatted_s(:long) %></p>
+  <hr class="my-4">
+  <p>Event created by: <%= @event.creator.name %></p>
+  <% hide_panel(@event) %>
+</div>
