@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @event = current_user.created_events.build(event_params)
     if @event.save
       flash[:notice] = 'Event was successfully created!'
+      current_user.attended_events << @event
       redirect_to root_path
     else
       flash[:alert] = "Event wasn't created! Check the inputs!"
