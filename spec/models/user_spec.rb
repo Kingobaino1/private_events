@@ -23,15 +23,16 @@ RSpec.describe User, type: :model do
 
   it 'Should create an event' do
     user = User.create(name: 'john', email: 'john@example.com', password: 'password')
-    event = user.created_events.build(date: '2020-12-12 00 00 00', title: 'test', description: 'this is a test', location: 'test database')
+    event = user.created_events.build(date: '2020-12-12 00 00 00', title: 'test',
+                                      description: 'this is a test', location: 'test database')
     expect(event.creator_id).to eql(user.id)
   end
 
   it 'Can attend many events' do
-     user = User.create(name: 'john', email: 'john@example.com', password: 'password')
-     event = user.created_events.build(date: '2020-12-12 00 00 00', title: 'test', description: 'this is a test', location: 'test database')
-     user.attended_events << event
-     expect(event.event_attender_ids.first).to eql(user.id)
+    user = User.create(name: 'john', email: 'john@example.com', password: 'password')
+    event = user.created_events.build(date: '2020-12-12 00 00 00', title: 'test',
+                                      description: 'this is a test', location: 'test database')
+    user.attended_events << event
+    expect(event.event_attender_ids.first).to eql(user.id)
   end
-
 end
