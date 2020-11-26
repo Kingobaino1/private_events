@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/nav' %>
+    <div class='container'>
+      <div class='w-75 mx-auto'>
+        <% if flash[:notice] %>
+          <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> <%= flash[:alert] %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
